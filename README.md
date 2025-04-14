@@ -10,6 +10,11 @@
   - creat .postcssrc
   - @import "tailwindcss"; in .css file
   - npm run dev
+- npm i react-router-dom
+- Login Form
+- SignIn/SignUp Form
+- from Validation(regex.com )
+- useRef hook
 
 # Features
 
