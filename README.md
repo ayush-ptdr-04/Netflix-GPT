@@ -15,6 +15,13 @@
 - SignIn/SignUp Form
 - from Validation(regex.com )
 - useRef hook
+- firebase setup
+- deploying our app to production
+- create signup user account
+- implement signIn user API
+- create redux store with userSlice
+- implement signOut API
+- implement UpdateProfile API
 
 # Features
 
