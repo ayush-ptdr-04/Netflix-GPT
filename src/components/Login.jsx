@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_POSTER, URL_AVATAR } from "../utils/constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -47,7 +48,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name?.current?.value,
-            photoURL: "https://avatars.githubusercontent.com/u/142520397?v=4",
+            photoURL: URL_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -61,7 +62,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -89,8 +89,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -109,10 +107,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/fa4630b1-ca1e-4788-94a9-eccef9f7af86/web/IN-en-20250407-TRIFECTA-perspective_43f6a235-9f3d-47ef-87e0-46185ab6a7e0_small.jpg"
-          alt="Bg-Logo"
-        />
+        <img src={BG_POSTER} alt="Bg-Logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
