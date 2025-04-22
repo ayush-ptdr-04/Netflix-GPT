@@ -12,7 +12,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -29,7 +29,7 @@ const Header = () => {
   //👉 sirf initial render pe chalega.
   useEffect(() => {
     // onAuthStateChanged(...) ye Firebase ka event listener hai.
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // if user sigIn or SignUp
         const { uid, email, displayName, photoURL } = user;
@@ -50,6 +50,7 @@ const Header = () => {
         navigate("/");
       }
     });
+    return () => unsubscribe();
   }, []); // onAuthStateChanged trigger hota hai jab user auth state change hoti hai. Isliye baar-baar manually API call karne ki zarurat nahi hoti.
 
   return (
