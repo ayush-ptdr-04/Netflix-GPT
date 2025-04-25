@@ -40,7 +40,8 @@
   - tailwind classes to make main container look awesome
 
 - build secondary component
-  - e
+  - fetch nowPlaying movies data to the store using useSelectore in secondary container and pass data to secondaryContainer to MoviesList and MoviesCard comonent
+  - create addSlice, hooks, and use newAPI for Popular, Trending, Upcoming movies and add in movies store using hooks, and again pass data to secondarContainer =>.....
 
 # Features
 
